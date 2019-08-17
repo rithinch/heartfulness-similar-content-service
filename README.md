@@ -1,1 +1,1 @@
-# Similar Content Service - Heartfullness Hackathon 2019
+# Similar Content Service - Heartathon 2019
