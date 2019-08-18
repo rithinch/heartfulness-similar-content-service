@@ -26,7 +26,7 @@ def get_embedder():
   return DocumentPoolEmbeddings([glove_embedding, flair_embedding_backward, flair_embedding_forward], pooling='mean')
   
 def get_embedding(content, embedder=get_embedder()):
-  paragraph = Sentence(content)
+  paragraph = Sentence(str(content))
   embedder.embed(paragraph)
   return paragraph.get_embedding().unsqueeze(0)
 

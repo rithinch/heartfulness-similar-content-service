@@ -26,7 +26,7 @@ def get_embedder():
   return DocumentPoolEmbeddings([glove_embedding, flair_embedding_backward, flair_embedding_forward], pooling='mean')
   
 def get_embedding(content, embedder=get_embedder()):
-  paragraph = Sentence(content)
+  paragraph = Sentence(str(content))
   embedder.embed(paragraph)
   return paragraph.get_embedding().unsqueeze(0)
 
@@ -45,11 +45,14 @@ def generate_embeddings_tensor(run, data, limit=5, save_filename='model.pt'):
     result = torch.cat([result, embedding], dim=0)
 
   print("Finished")
-
+  filename = f'outputs/{save_filename}'
   os.makedirs("outputs", exist_ok=True)
-  torch.save(result.narrow(0, 1, len(keys)),f'outputs/{save_filename}')
+  torch.save(result.narrow(0, 1, len(keys)),filename)
 
   print("Saved")
+
+  run.upload_file(name=save_filename, path_or_stream=filename)
+  run.complete()
 
 
 
@@ -85,7 +88,6 @@ if __name__ == '__main__':
 
   #Generate the embeddings for all the paragraphs
   generate_embeddings_tensor(run, d, limit=opt.size)
-
 
 
 #Find similar content

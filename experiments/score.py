@@ -16,7 +16,7 @@ def get_embedder():
   return DocumentPoolEmbeddings([glove_embedding, flair_embedding_backward, flair_embedding_forward], pooling='mean')
   
 def get_embedding(content, embedder=get_embedder()):
-  paragraph = Sentence(content)
+  paragraph = Sentence(str(content))
   embedder.embed(paragraph)
   return paragraph.get_embedding().unsqueeze(0)
 
@@ -52,17 +52,15 @@ def init():
     
 
 def run(raw_data):
+  
   req = json.loads(raw_data)
 
   try:
-    data = int(req['query'])
-    res = find_similar_content_byID(data)
+    id = int(req['id'])
+    res = find_similar_content_byID(id)
   except:
     data = get_data('outputs/data.pkl')
     query = req['query']
     res = find_similar_content(data, query)
-  # make prediction
   
-
-  # you can return any data type as long as it is JSON-serializable
-  return y_hat.tolist()
+  return res
