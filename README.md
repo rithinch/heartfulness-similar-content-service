@@ -1,6 +1,6 @@
 # 📑 Similar Content Service - Heartathon 2019
 
-Applied Flair Word+Document Embeddings on a small subset of the given mission literature dataset. Then computed cosine similarity on the embedding vectors. Top 'k' elements from resulting vector are mapped with the content id's and sent back as 'Similar Content' in an REST API.
+Applied Flair [Word](https://github.com/zalandoresearch/flair/blob/master/resources/docs/TUTORIAL_3_WORD_EMBEDDING.md)+[Document Embeddings](https://github.com/zalandoresearch/flair/blob/master/resources/docs/TUTORIAL_5_DOCUMENT_EMBEDDINGS.md) on a small subset of the given mission literature dataset. Then computed cosine similarity on the embedding vectors. Top 'k' elements from resulting vector are mapped with the content id's and sent back as 'Similar Content' in an REST API.
 
 Tech Stack includes Python ([pytorch](https://github.com/pytorch/pytorch), [flair](https://github.com/zalandoresearch/flair), [pandas](https://github.com/pandas-dev/pandas)) + [Azure Machine Learning Service](https://azure.microsoft.com/en-gb/services/machine-learning-service/) for training in cloud and model deployment as webservice (in progress).
 
