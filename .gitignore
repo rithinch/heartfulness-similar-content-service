@@ -1,0 +1,5 @@
+./experiments/notebooks/.ipynb_checkpoints
+/experiments/model.pt
+/experiments/data/data.pkl
+
+
