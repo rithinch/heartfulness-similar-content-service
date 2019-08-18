@@ -5,8 +5,7 @@ Applied Flair [Word](https://github.com/zalandoresearch/flair/blob/master/resour
 Tech Stack includes Python ([pytorch](https://github.com/pytorch/pytorch), [flair](https://github.com/zalandoresearch/flair), [pandas](https://github.com/pandas-dev/pandas)) + [Azure Machine Learning Service](https://azure.microsoft.com/en-gb/services/machine-learning-service/) for training in cloud and model deployment as webservice (training on full dataset is in progress).
 
 ### Complete API Documentation
-
-https://documenter.getpostman.com/view/5756089/SVfGzBy2?version=latest
+https://documenter.getpostman.com/view/5756089/SVfGzCVu?version=latest
 
 ### References
 
