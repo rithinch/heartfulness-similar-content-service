@@ -45,14 +45,11 @@ def generate_embeddings_tensor(run, data, limit=5, save_filename='model.pt'):
     result = torch.cat([result, embedding], dim=0)
 
   print("Finished")
-  filename = f'outputs/{save_filename}'
+
   os.makedirs("outputs", exist_ok=True)
-  torch.save(result.narrow(0, 1, len(keys)),filename)
+  torch.save(result.narrow(0, 1, len(keys)),f'outputs/{save_filename}')
 
   print("Saved")
-
-  run.upload_file(name=save_filename, path_or_stream=filename)
-  run.complete()
 
 
 
@@ -88,6 +85,7 @@ if __name__ == '__main__':
 
   #Generate the embeddings for all the paragraphs
   generate_embeddings_tensor(run, d, limit=opt.size)
+
 
 
 #Find similar content
